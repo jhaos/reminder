@@ -1,0 +1,58 @@
+#!/bin/bash
+
+
+if [ $1 = "if" ]
+then
+	echo "if [ $1 = \"5\" ] 
+then
+	echo \"Hello world\"
+elif [ $1 = \"2\" ]
+then
+	echo \"Hello world 2\"
+else
+	echo \"Bye world\""
+        	
+elif [ $1 = "case" ]
+then
+	echo "case \$1 in
+  bash)
+    echo \"Nice language\"
+    ;;
+  *)
+    echo \"Not as good as bash\"
+    ;;
+asec
+	"
+elif [ $1 = "tips" ]
+then
+	echo "Usefull conditions:
+        -z: to evaluate if a variable is empty.
+	Example: if [ -z \"myvar\" ]
+        
+	-d: to evaluate if a variable is a directory.
+	Example: if [ -d \"mydir\" ]
+        
+	-f: to evaluate if a variable is a file.
+	Example: if [ -f \"myfile\" ]	
+        
+	-r: to evaluate if a file has read permissions.
+	Example: if [ -f \"myfile\" ]	
+        
+	-x: to evaluate if a file has execution  permissions.
+	Example: if [ -x \"myfile\" ]	
+        
+	-w: to evaluate if a file has write permissions.
+	Example: if [ -w \"myfile\" ]	
+        
+	-eq: to evaluate equality for numbers.
+	Example: if [ \$1 -eq 1 ]
+	Similar expressions: -ne,-gt,-lt,-ge,-le
+
+        [[ ]] Similar to [ ] but allows regex
+	Example: if [[ \$1 =~ \"h*.gz\"  ]]
+
+	|| is classic \"or\" and && is the \"and\" conditions 
+	"
+       	
+
+fi
