@@ -80,7 +80,28 @@ asec
 	shift
 	;;
 	-l|--loops)
-		echo "loops"
+		echo "### For Loop ###"
+		echo "for i in \$(ls)
+do
+	echo \$i
+done
+		"
+		echo "### While Loop ###"
+		echo "i = 5
+while [ \$i -gt 0 ]
+do
+	echo \$i
+	((i--))    
+done
+		"	
+		echo "### Until Loop ###"
+		echo "i = 5
+until [ \$i -lt 0 ]
+do
+	echo \$i
+	((i--))
+done
+		"
 		shift
 	;;
 	*)
