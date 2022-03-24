@@ -9,7 +9,7 @@ A simple script to remain basics of bash script
 ### Commands
 
 ```
-./reminder tips # Shows tips for conditionals
-./reminder case # Shows case structure
-./reminder if   # Shows if structure
+./reminder --tips # Shows tips for different flags/elements
+./reminder --case # Shows case structure
+./reminder --if   # Shows if structure
 ```
