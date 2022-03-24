@@ -12,7 +12,9 @@ then
 	use_help
 fi
 
-case $1 in
+while [ $# -ne 0 ]
+do
+  case $1 in
 	-i|--if)
             echo "if [ \$1 = \"5\" ]
 then
@@ -23,7 +25,8 @@ then
 else
         echo \"Bye world\"
 fi
-"
+        "
+	shift
 	;;
 	-c|--case)
 	    echo "case \$1 in
@@ -35,6 +38,7 @@ fi
     ;;
 asec
         "
+	shift
 	;;
 	-t|--tips)
 		        echo "Usefull conditions:
@@ -70,12 +74,17 @@ asec
 
 	\$@: The parameters set into a bash script in separated words
 	Example: ./script param1 param2. The output would be \"param1\" \n\"param2\"
+	
+	shift: erase one parameter of the \$# or \$@
         "
+	shift
 	;;
 	-l|--loops)
 		echo "loops"
+		shift
 	;;
 	*)
 	use_help
 	;;
-esac
+  esac
+done
