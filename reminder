@@ -1,20 +1,32 @@
 #!/bin/bash
 
 
-if [ $1 = "if" ]
+function use_help()
+{
+	echo "Usage: --help|-h --if|-i --case|-c --tips|-t"
+	exit 0
+}
+
+if [ $# = 0 ]
 then
-	echo "if [ $1 = \"5\" ] 
+	use_help
+fi
+
+case $1 in
+	-i|--if)
+            echo "if [ \$1 = \"5\" ]
 then
-	echo \"Hello world\"
-elif [ $1 = \"2\" ]
+        echo \"Hello world\"
+elif [ \$1 = \"2\" ]
 then
-	echo \"Hello world 2\"
+        echo \"Hello world 2\"
 else
-	echo \"Bye world\""
-        	
-elif [ $1 = "case" ]
-then
-	echo "case \$1 in
+        echo \"Bye world\"
+fi
+"
+	;;
+	-c|--case)
+	    echo "case \$1 in
   bash)
     echo \"Nice language\"
     ;;
@@ -22,37 +34,48 @@ then
     echo \"Not as good as bash\"
     ;;
 asec
-	"
-elif [ $1 = "tips" ]
-then
-	echo "Usefull conditions:
-        -z: to evaluate if a variable is empty.
-	Example: if [ -z \"myvar\" ]
-        
-	-d: to evaluate if a variable is a directory.
-	Example: if [ -d \"mydir\" ]
-        
-	-f: to evaluate if a variable is a file.
-	Example: if [ -f \"myfile\" ]	
-        
-	-r: to evaluate if a file has read permissions.
-	Example: if [ -f \"myfile\" ]	
-        
-	-x: to evaluate if a file has execution  permissions.
-	Example: if [ -x \"myfile\" ]	
-        
-	-w: to evaluate if a file has write permissions.
-	Example: if [ -w \"myfile\" ]	
-        
-	-eq: to evaluate equality for numbers.
-	Example: if [ \$1 -eq 1 ]
-	Similar expressions: -ne,-gt,-lt,-ge,-le
+        "
+	;;
+	-t|--tips)
+		        echo "Usefull conditions:
+        -z: to evaluate if a string is empty.
+        Example: if [ -z \"myvar\" ]
+
+        -d: to evaluate if a variable is a directory.
+        Example: if [ -d \"mydir\" ]
+
+        -f: to evaluate if a variable is a file.
+        Example: if [ -f \"myfile\" ]
+
+        -r: to evaluate if a file has read permissions.
+        Example: if [ -f \"myfile\" ]
+
+        -x: to evaluate if a file has execution  permissions.
+        Example: if [ -x \"myfile\" ]
+
+        -w: to evaluate if a file has write permissions.
+        Example: if [ -w \"myfile\" ]
+
+        -eq: to evaluate equality for numbers.
+        Example: if [ \$1 -eq 1 ]
+        Similar expressions: -ne,-gt,-lt,-ge,-le
 
         [[ ]] Similar to [ ] but allows regex
-	Example: if [[ \$1 =~ \"h*.gz\"  ]]
+        Example: if [[ \$1 =~ \"h*.gz\"  ]]
 
-	|| is classic \"or\" and && is the \"and\" conditions 
-	"
-       	
+        || is classic \"or\" and && is the \"and\" conditions
+	
+	\$#: The number of parameters into a bash script.
+	Example: ./reminder --case. The value of \$# is 1.
 
-fi
+	\$@: The parameters set into a bash script in separated words
+	Example: ./script param1 param2. The output would be \"param1\" \n\"param2\"
+        "
+	;;
+	-l|--loops)
+		echo "loops"
+	;;
+	*)
+	use_help
+	;;
+esac
